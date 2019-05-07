@@ -32,4 +32,8 @@ app.use('/files',express.static(path.resolve(__dirname,'..','tmp')))
 
 app.use(require('./routes'))
 
-server.listen(process.env.PORT,process.env.YOUR_HOST || 5000)
+const port = process.env.PORT || 5000
+const host = process.env.HOST || '0.0.0.0'
+server.listen(port,host, function(){
+    console.log("Server started.......");
+})
